@@ -1,0 +1,125 @@
+/******************************************************************************
+ * custom.scss
+ * Builds the bootstrap CSS
+ *
+ * Including only the parts we will use
+ *
+ * Lines below are just for easy cut and paste 
+ * sass --watch scss/custom.scss:webpage/style.css --style compressed
+ * sass scss/custom.scss:webpage/style.css --style compressed
+ *
+ *******************************************************************************/
+
+// Required Configuration
+@import "../node_modules/bootstrap/scss/functions";
+
+// Customization will go here
+
+
+// More Required stylesheets
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "../node_modules/bootstrap/scss/utilities";
+
+// Layout & components (Commenting out what is not needed)
+@import "../node_modules/bootstrap/scss/root";
+@import "../node_modules/bootstrap/scss/reboot";
+@import "../node_modules/bootstrap/scss/type";
+@import "../node_modules/bootstrap/scss/images";
+@import "../node_modules/bootstrap/scss/containers";
+@import "../node_modules/bootstrap/scss/grid";
+@import "../node_modules/bootstrap/scss/tables";
+@import "../node_modules/bootstrap/scss/forms";
+@import "../node_modules/bootstrap/scss/buttons";
+/*
+@import "../node_modules/bootstrap/scss/transitions";
+@import "../node_modules/bootstrap/scss/dropdown";
+@import "../node_modules/bootstrap/scss/button-group";
+@import "../node_modules/bootstrap/scss/nav";
+@import "../node_modules/bootstrap/scss/navbar";
+*/
+@import "../node_modules/bootstrap/scss/card";
+/*
+@import "../node_modules/bootstrap/scss/accordion";
+@import "../node_modules/bootstrap/scss/breadcrumb";
+@import "../node_modules/bootstrap/scss/pagination";
+@import "../node_modules/bootstrap/scss/badge";
+@import "../node_modules/bootstrap/scss/alert";
+@import "../node_modules/bootstrap/scss/progress";
+@import "../node_modules/bootstrap/scss/list-group";
+@import "../node_modules/bootstrap/scss/close";
+@import "../node_modules/bootstrap/scss/toasts";
+@import "../node_modules/bootstrap/scss/modal";
+@import "../node_modules/bootstrap/scss/tooltip";
+@import "../node_modules/bootstrap/scss/popover";
+@import "../node_modules/bootstrap/scss/carousel";
+@import "../node_modules/bootstrap/scss/spinners";
+@import "../node_modules/bootstrap/scss/offcanvas"; 
+@import "../node_modules/bootstrap/scss/placeholders";
+*/
+
+// Helpers
+@import "../node_modules/bootstrap/scss/helpers";
+
+// Utilities
+@import "../node_modules/bootstrap/scss/utilities/api";
+// scss-docs-end import-stack
+
+
+// Customizations for our page.
+#printable-quads {display:none}
+.form-label {display:none}
+.quad-table tr td {width:20%;vertical-align:bottom;text-align:center}
+.quad-table tr td:first-child {width:40%;text-align:left}
+.quad-table td:not(.round-title-cell, .quad-instructions) {
+  border:2px solid black;
+}
+.quad-table td.round-title-cell {
+  text-align:center;
+  font-weight:bold;
+}
+.quad-table tr:nth-child(2) td:first-child:before {
+  content: "1. ";
+}
+.quad-table tr:nth-child(3) td:first-child:before {
+  content: "2. ";
+}
+.quad-table tr:nth-child(4) td:first-child:before {
+  content: "3. ";
+}
+.quad-table tr:nth-child(5) td:first-child:before {
+  content: "4. ";
+}
+.quad-table tr:nth-child(6) td:first-child:before {
+  content: "5. ";
+}
+.quad-table tr:nth-child(7) td:first-child:before {
+  content: "6. ";
+}
+.quad-table tr:nth-child(8) td:first-child:before {
+  content: "7. ";
+}
+.quad-table td.quad-instructions:before {content:"" !important}
+.quad-table td:first-child {
+  font-size:1.2rem;
+  padding: 10px 10px 10px 10px;
+}
+.quad-table th {
+  font-size:1.4rem;
+}
+
+@media print {
+  #printable-quads {display:initial;width:100% !important}
+  #registration-area {display:none}
+  .quad-table {break-after: page;} 
+}
+
+#printable-quads .small-swiss-table .quad-instructions {display:none}
+#printable-quads .small-swiss-table tr:nth-child(n+2) td:nth-child(4) {color:transparent}
+
+
+/*
+ * Lines below for easy cut and paste in the terminal
+ * sass --watch scss/custom.scss:webpage/style.css --style compressed
+ * sass scss/custom.scss:webpage/style.css --style compressed
+ */
