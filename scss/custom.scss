@@ -9,6 +9,14 @@
  * sass scss/custom.scss:webpage/style.css --style compressed
  *
  *******************************************************************************/
+/*!
+ * Bootstrap v5.1.3 (https://getbootstrap.com/)
+ * Copyright 2011-2021 The Bootstrap Authors
+ * Copyright 2011-2021 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ *
+ * Customized for the Chess Quads App by HandsomeWeb LLC
+ */ 
 
 // Required Configuration
 @import "../node_modules/bootstrap/scss/functions";
@@ -142,6 +150,8 @@ $headings-color:              $secondary !default;
 
 
 // Customizations for our page.
+
+/* Printable Quads */
 #printable-quads {display:none}
 .form-label {display:none}
 .quad-table tr td {width:20%;vertical-align:bottom;text-align:center}
@@ -191,11 +201,16 @@ $headings-color:              $secondary !default;
 
 #printable-quads .small-swiss-table .quad-instructions {display:none}
 #printable-quads .small-swiss-table tr:nth-child(n+2) td:nth-child(4) {color:transparent}
+
+/* USCF Search Frame */
 #uscf-frame {width:100%;height:555px;}
 .with-iframe {padding:0;border:0}
+
+/* Main registration areas */
 #quad-list {min-height:523px;}
 #registration-area {padding-top:5px}
 #registration-area h1 {padding-bottom:2px}
+
 /*
  * Lines below for easy cut and paste in the terminal
  * sass --watch scss/custom.scss:webpage/style.css --style compressed
