@@ -48,17 +48,12 @@
           <input type="button" class='btn btn-outline-primary' id="search-player-btn" value="Search by ID">
           </div>
         </form>
-        <form method="post" action="https://uschess.org/msa/thin2.php" target="uscf-frame">
-          <div class='d-grid gap-2 mt-2'>
-            <input type='hidden' name='memfn' value="CHRISTOPHER">
-            <input type='hidden' name='memln' value="WOOD">
-            <input type='hidden' name='memstate' value="">
-            <input type="submit" class='btn btn-outline-primary' id="search-player-btn" value="Search by Name">
-          </div>
-        </form>
+        <div class='d-grid gap-2 mt-2'>
+          <a type="submit" class='btn btn-outline-primary' id="search-player-btn" target="uscf-frame" href="https://uschess.org/msa/thin2.php">Search by Name</a>
+        </div>
         <div class='d-grid gap-2 mt-2'>
           <input type="button" onclick='window.print();' class='btn btn-outline-primary' id="print-btn" value="Print">
-          </div>
+        </div>
         <h2 class='h4 mt-4'>Remove a Player</h2>
         <p>To remove a player submit their ID below.</p>
           <div class="form-group">

@@ -33,12 +33,10 @@ function(e){
 document.querySelector('#search-player-btn').addEventListener('click',
 function(e){
   let url = "";
-  first = document.getElementById("form-first").value;
-  last = document.getElementById("form-last").value;
   id = document.getElementById("form-id").value;
   // at least a last name
   if (id.length < 1 && last.length < 1) {
-    alert('You will need to provide a last name or a USCF ID.');
+    alert('You will need to provide a USCF ID.');
   } else {
       url = "https://uschess.org/msa/thin3.php?" + id;      
   }
