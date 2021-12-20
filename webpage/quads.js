@@ -147,15 +147,15 @@ function makeNewList() {
   for (let k = 0; k < qTs.length; k++) {
     let quadInstruction = "<p><strong>Round One</strong><br />"
     + "Player 1 plays white against Player 4.<br />"
-    + "Player 3 plays white against Player 2.<br />"
+    + "Player 2 plays white against Player 3.<br />"
     + "Indicate points in table above.</p>"
     + "<p><strong>Round Two</strong><br />"
-    + "Player 2 plays white against Player 1.<br />"
-    + "Player 4 plays white against Player 3.<br />"
+    + "Player 3 plays white against Player 1.<br />"
+    + "Player 4 plays white against Player 2.<br />"
     + "Indicate points in table above.</p>"
     + "<p><strong>Round Three</strong><br />"
-    + "Player 1 plays against Player 3 (draw for color).<br />"
-    + "Player 4 plays against Player 2 (draw for color).<br />"
+    + "Player 1 plays against Player 2 (draw for color).<br />"
+    + "Player 3 plays against Player 4 (draw for color).<br />"
     + "Indicate points in table above and circle color played.</p>";
     let quadInstructionRow = document.createElement("tr");
     let quadInstructionCell = document.createElement("td");
