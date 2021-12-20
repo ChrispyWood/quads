@@ -44,24 +44,28 @@ function(e){
 });
 // End of Search USCF for a player
 
-// Remove a player
+// Remove a player or all players
 document.querySelector('#remove-player-btn').addEventListener('click',
 function(e){
   // Get the ID to remove
   idToRemove = document.getElementById('form-delete-id').value;
+  if (document.getElementById('form-delete-id').value=="DELETE ALL") {
+    // Delete al of the players
+    players = [];
+  }
   // Loop through the array
   for (let i = 0; i < players.length; i++) {
     thisID = players[i].id;
     if (thisID==idToRemove) {
       // Delete this player
       players.splice(i,1);
-      //put in local storage
-      localStorage.setItem('players', JSON.stringify(players));
-      makeNewList();
     }
   }
+  //put in local storage
+  localStorage.setItem('players', JSON.stringify(players));
+  makeNewList();
 });
-// End of remove a player
+// End of remove a player or all players
 
 /* * * * * * * * * * * * * * * * * *
  * makeNewList()
