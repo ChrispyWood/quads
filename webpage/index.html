@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <title>Quads SetUp</title>
+  <style>
+    #printable-quads {display:none}
+    .form-label {display:none}
+    .quad-table tr td {width:20%;vertical-align:bottom;text-align:center}
+    .quad-table tr td:first-child {width:40%;text-align:left}
+    .quad-table td:not(.round-title-cell, .quad-instructions) {
+      border:2px solid black;
+    }
+    .quad-table td.round-title-cell {
+      text-align:center;
+      font-weight:bold;
+    }
+    .quad-table tr:nth-child(2) td:first-child:before {
+      content: "1. ";
+    }
+    .quad-table tr:nth-child(3) td:first-child:before {
+      content: "2. ";
+    }
+    .quad-table tr:nth-child(4) td:first-child:before {
+      content: "3. ";
+    }
+    .quad-table tr:nth-child(5) td:first-child:before {
+      content: "4. ";
+    }
+    .quad-table tr:nth-child(6) td:first-child:before {
+      content: "5. ";
+    }
+    .quad-table tr:nth-child(7) td:first-child:before {
+      content: "6. ";
+    }
+    .quad-table tr:nth-child(8) td:first-child:before {
+      content: "7. ";
+    }
+    .quad-table td.quad-instructions:before {content:"" !important}
+    .quad-table td:first-child {
+      font-size:1.2rem;
+      padding: 10px 10px 10px 10px;
+    }
+    .quad-table th {
+      font-size:1.4rem;
+    }
+
+    @media print {
+      #printable-quads {display:initial;width:100% !important}
+      #registration-area {display:none}
+      .quad-table {break-after: page;} 
+    }
+
+    #printable-quads .small-swiss-table .quad-instructions {display:none}
+    #printable-quads .small-swiss-table tr:nth-child(n+2) td:nth-child(4) {color:transparent}
+    
+
+  </style>
+</head>
+<body>
+  
+  <div id="printable-quads" class="container-fluid">
+
+  </div>
+
+
+  <div class="container" id="registration-area">
+    <h1>Quads</h1>
+    <div class="row" id="players">
+      <div class="col-4">
+        <h2 class='h4'>Registered</h2>
+        <div class="card p-4">
+          <div id="quad-list">
+            
+          </div>  
+        </div>
+      </div>
+      <div class="col-4">
+        <h2 class='h4'>Add a Player</h2>
+        <form id="add-player">
+          <div class="form-group">
+            <label for="first" class="form-label">First</label>
+            <input type="text" class="form-control mb-1" id="form-first" placeholder="First Name">
+          </div>
+          <div class="form-group">
+            <label for="last" class="form-label">Last</label>
+            <input type="text" class="form-control mb-1" id="form-last" placeholder="Last Name">
+          </div>
+          <div class="form-group">
+            <label for="rating" class="form-label">Rating</label>
+            <input type="number" class="form-control mb-1" id="form-rating"  placeholder="Rating" maxlength="4">
+          </div>
+          <div class="form-group">
+            <label for="rating" class="form-label">ID</label>
+            <input type="text" class="form-control mb-1" id="form-id" placeholder="USCF ID" maxlength="8">
+          </div>
+          <div class='d-grid gap-2 mt-2'>
+          <input type="submit" class='btn btn-primary' id="add-player-btn" value="Add Player">
+          <input type="button" class='btn btn-outline-primary' id="search-player-btn" value="Search by ID">
+          </div>
+        </form>
+        <form method="post" action="http://uschess.org/msa/thin2.php" target="uscf-frame">
+          <div class='d-grid gap-2 mt-2'>
+            <input type='hidden' name='memfn' value="CHRISTOPHER">
+            <input type='hidden' name='memln' value="WOOD">
+            <input type='hidden' name='memstate' value="">
+            <input type="submit" class='btn btn-outline-primary' id="search-player-btn" value="Search by Name">
+          </div>
+        </form>
+        
+        <div class='d-grid gap-2 mt-2'>
+          <input type="button" onclick='window.print();' class='btn btn-outline-primary' id="print-btn" value="Print">
+          </div>
+        <h2 class='h4 mt-4'>Remove a Player</h2>
+        <p>To remove a player submit their ID below.</p>
+          <div class="form-group">
+            <label for="id" class="form-label">ID</label>
+            <input type="text" class="form-control mb-1" id="form-delete-id"  placeholder="ID of player to remove.">
+          </div>
+          <div class='d-grid gap-2 mt-2'>
+            <input type="button" class='btn btn-outline-primary' id="remove-player-btn" value="Delete Player">
+          </div>
+      </div>
+      <div class="col-4">
+        <h2 class='h4'>US Chess</h2>
+        <div class="card">
+          <div class="card card-body">
+            <iframe name='uscf-frame' id='uscf-frame' title='USCF Lookups' style='width:100%;height:600px;' src="http://arlingtonchess.com/_images/icons/android-chrome-256x256.png"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </div>
+    <script src='quads.js'></script>
+</body>
+</html>
