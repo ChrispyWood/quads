@@ -1,5 +1,5 @@
 # quads
-For managing a quads style chess tournament in a browser.
+For managing a quads-style chess tournament in a browser.
 
 ## goals
 1. Register players with name, rating, US Chess ID
