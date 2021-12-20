@@ -57,6 +57,8 @@ function(e){
     if (thisID==idToRemove) {
       // Delete this player
       players.splice(i,1);
+      //put in local storage
+      localStorage.setItem('players', JSON.stringify(players));
       makeNewList();
     }
   }
