@@ -18,7 +18,7 @@
     <div class="row" id="players">
       <div class="col-4">
         <h2 class='h4'>Registered</h2>
-        <div class="card p-4">
+        <div class="card p-3">
           <div id="quad-list">
             <!-- Registered List Goes Here -->
           </div>  
@@ -48,7 +48,7 @@
           <input type="button" class='btn btn-outline-primary' id="search-player-btn" value="Search by ID">
           </div>
         </form>
-        <form method="post" action="http://uschess.org/msa/thin2.php" target="uscf-frame">
+        <form method="post" action="https://uschess.org/msa/thin2.php" target="uscf-frame">
           <div class='d-grid gap-2 mt-2'>
             <input type='hidden' name='memfn' value="CHRISTOPHER">
             <input type='hidden' name='memln' value="WOOD">
@@ -56,7 +56,6 @@
             <input type="submit" class='btn btn-outline-primary' id="search-player-btn" value="Search by Name">
           </div>
         </form>
-  
         <div class='d-grid gap-2 mt-2'>
           <input type="button" onclick='window.print();' class='btn btn-outline-primary' id="print-btn" value="Print">
           </div>
@@ -73,8 +72,8 @@
       <div class="col-4">
         <h2 class='h4'>US Chess</h2>
         <div class="card">
-          <div class="card card-body">
-            <iframe name='uscf-frame' id='uscf-frame' title='USCF Lookups' style='width:100%;height:600px;' src="http://arlingtonchess.com/_images/icons/android-chrome-256x256.png"></iframe>
+          <div class="card card-body with-iframe">
+            <iframe name='uscf-frame' id='uscf-frame' title='USCF Lookups' src="frame.html"></iframe>
           </div>
         </div>
       </div>
