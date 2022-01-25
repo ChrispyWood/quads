@@ -193,9 +193,11 @@ $headings-color:              $secondary !default;
   font-size:1.4rem;
 }
 
+#pairing-table {display:none}
+
 @media print {
-  #printable-quads {display:initial;width:100% !important}
-  #pairing-table, #registration-area {display:none}
+  #printable-quads, #pairing-table.active {display:initial;width:100% !important}
+  #registration-area {display:none}
   #pairing-table, .quad-table {break-after: page;} 
 }
 

@@ -209,6 +209,7 @@ function makeNewList() {
     quadTableTopCell.className = 'title-cell';
     if(quadType=='swiss') {
       quadTableTopCell.innerHTML = `Small Swiss`;
+      document.getElementById('pairing-table').classList.add('active'); // Makes the pairing tables display when needed
     } else {
       quadTableTopCell.innerHTML = `Quad ${numOfQuads}`;
     }
