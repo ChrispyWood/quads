@@ -195,8 +195,8 @@ $headings-color:              $secondary !default;
 
 @media print {
   #printable-quads {display:initial;width:100% !important}
-  #registration-area {display:none}
-  .quad-table {break-after: page;} 
+  #pairing-table, #registration-area {display:none}
+  #pairing-table, .quad-table {break-after: page;} 
 }
 
 #printable-quads .small-swiss-table .quad-instructions {display:none}
