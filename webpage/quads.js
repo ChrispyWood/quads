@@ -7,6 +7,7 @@ else {
   makeNewList();
 }
 
+
 /* * * * * * * * * * * * * * * * *
  * Event Listeners
  * * * * * * * * * * * * * * * * */
@@ -61,11 +62,14 @@ function(e){
       players.splice(i,1);
     }
   }
+  // Clear the Delete Player Box
+  document.getElementById('form-delete-id').value = "";
   //put in local storage
   localStorage.setItem('players', JSON.stringify(players));
   makeNewList();
 });
 // End of remove a player or all players
+
 
 /* * * * * * * * * * * * * * * * * *
  * makeNewList()
@@ -137,21 +141,29 @@ function makeNewList() {
     let quadRow = document.createElement('tr');
     quadRow.className = 'quad-row';
     quadRow.id = `player-${i}`;
-    // indicate who plays whom according to which quad player this person is
-    switch (quadplayer) {
-      case 0:
-        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 4</td><td>black vs 3</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
-        break;
-      case 1:
-        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 3</td><td>black vs 4</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
-        break;
-      case 2:
-        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 2</td><td>white vs 1</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
-        break;
-      case 3:
-        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 1</td><td>white vs 2</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
-        break;
+ 
+    if (smallSwissTitle===true) {
+      // If this is a small swiss
+      quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td></td><td></td><td></td></tr>`;
+    }else {
+      // If this is not a small swiss
+      // indicate who plays whom according to which quad player this person is
+      switch (quadplayer) {
+        case 0:
+          quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 4</td><td>black vs 3</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+          break;
+        case 1:
+          quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 3</td><td>black vs 4</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+          break;
+        case 2:
+          quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 2</td><td>white vs 1</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+          break;
+        case 3:
+          quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 1</td><td>white vs 2</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+          break;
+      }
     }
+
     document.getElementById(`quad-${numOfQuads}`).appendChild(quadRow);
     // End of add the player to the printable tables
   }
@@ -219,6 +231,7 @@ function makeNewList() {
   // End of makeQuadTable() Make the Quad or Small Swiss Table
 } 
 // End of makeNewList() - Make a new player list
+
 
 /* * * * * * * * * * * * * * * * * *
  * clearForm()
