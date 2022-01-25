@@ -137,9 +137,21 @@ function makeNewList() {
     let quadRow = document.createElement('tr');
     quadRow.className = 'quad-row';
     quadRow.id = `player-${i}`;
-    quadRow.innerHTML = "<tr><td>" + players[i].first.toUpperCase() + " " + players[i].last.toUpperCase()
-    + "<br /> &nbsp; &nbsp; &nbsp; (" + players[i].rating + ") " + players[i].id
-     + "<td></td><td></td><td>color: &nbsp; W &nbsp; B</td></tr>";
+    // indicate who plays whom according to which quad player this person is
+    switch (quadplayer) {
+      case 0:
+        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 4</td><td>black vs 3</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+        break;
+      case 1:
+        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>white vs 3</td><td>black vs 4</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+        break;
+      case 2:
+        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 2</td><td>white vs 1</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+        break;
+      case 3:
+        quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td>black vs 1</td><td>white vs 2</td><td>color: &nbsp; W &nbsp; B</td></tr>`;
+        break;
+    }
     document.getElementById(`quad-${numOfQuads}`).appendChild(quadRow);
     // End of add the player to the printable tables
   }
@@ -147,7 +159,8 @@ function makeNewList() {
   // Add instructions on tables
   const qTs = document.querySelectorAll('.quad-table');
   for (let k = 0; k < qTs.length; k++) {
-    let quadInstruction = "<p><strong>Round One</strong><br />"
+    let quadInstruction = "<svg style=\"max-width:30%;float:right;\" id=\"Layer_1\" data-name=\"Layer 1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" viewBox=\"0 0 256 256\"><image width=\"256\" height=\"256\" xlink:href=\"data:image/png;base64,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\"/></svg>"
+    + "<p><strong>Round One</strong><br />"
     + "Player 1 plays white against Player 4.<br />"
     + "Player 2 plays white against Player 3.<br />"
     + "Indicate points in table above.</p>"
@@ -158,7 +171,7 @@ function makeNewList() {
     + "<p><strong>Round Three</strong><br />"
     + "Player 1 plays against Player 2 (draw for color).<br />"
     + "Player 3 plays against Player 4 (draw for color).<br />"
-    + "Indicate points in table above and circle color played.</p>";
+    + "Indicate points in table above and circle color played.</p>"
     let quadInstructionRow = document.createElement("tr");
     let quadInstructionCell = document.createElement("td");
     quadInstructionCell.setAttribute("colspan", "4");
