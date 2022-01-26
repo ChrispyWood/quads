@@ -87,10 +87,13 @@ function(e){
  * Make a new player list
  * * * * * * * * * * * * * * * * * */
 function makeNewList() {
- 
+
+  
   smallSwissPlayers = []; // Clear the smallSwissPlayers array, so old players are no longer in the small swiss
+  smallSwissPlayersCount = 0; // Reset variable for index of smallSwissPlayers[]
   document.getElementById('pairing-table').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
   document.getElementById('pairing-cards').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
+
 
   // loop through players and change rating to a number
   for (let i = 0; i < players.length; i++) {
@@ -124,7 +127,6 @@ function makeNewList() {
     // Make a title if this is a new quad or small swiss
     if (quadplayer === 0) {
       if (playersLeft > 7 || playersLeft == 4) {
-        console.log(playersLeft);
         // if more than 7 or exactly 4 are left, then make a quad title
         numOfQuads++; // the quad number
         let quadTitle = document.createElement('h4');
@@ -161,13 +163,12 @@ function makeNewList() {
     if (smallSwissTitle===true) {
       // If this is a small swiss
       // set the names of the small swiss players and increment the number
-      smallSwissPlayers[smallSwissPlayersCount] = `${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}`;
       smallSwissPlayersCount++;
-      let playerNumberId = "td-player-" + smallSwissPlayersCount;
-      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount-1];
-      playerNumberId = "swiss-player-" + smallSwissPlayersCount;
-      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount-1];
-      
+      smallSwissPlayers[smallSwissPlayersCount] = `${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}`;
+      let playerNumberId = `td-player-${smallSwissPlayersCount}`;
+      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount];
+      playerNumberId = `swiss-player-${smallSwissPlayersCount}`;
+      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount];
       quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td></td><td></td><td></td></tr>`;
     }else {
       // If this is not a small swiss
