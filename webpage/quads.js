@@ -1,5 +1,8 @@
 let players = []; // an array to hold player objects
 
+let smallSwissPlayers = []; // names of the small swiss players
+let smallSwissPlayersCount = 0; // index of smallSwissPlayers[]
+
 // if in local storage, get it and display
 if (localStorage.getItem('players') === null) players = [];
 else {
@@ -117,7 +120,7 @@ function makeNewList() {
         quadList.appendChild(quadTitle);
         makeQuadTable('quad',numOfQuads); // Make the Quad Tables (quadTables)
       } else {
-        // if a small swiss title has not been made, make one
+        // if a small swiss title has not been made, make one, then start counting small swiss players
         if (smallSwissTitle === false) {
           numOfQuads++; // the quad number
           let quadTitle = document.createElement('h4');
@@ -144,6 +147,14 @@ function makeNewList() {
  
     if (smallSwissTitle===true) {
       // If this is a small swiss
+      // set the names of the small swiss players and increment the number
+      smallSwissPlayers[smallSwissPlayersCount] = `${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}`;
+      smallSwissPlayersCount++;
+      let playerNumberId = "td-player-" + smallSwissPlayersCount;
+      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount-1];
+      playerNumberId = "swiss-player-" + smallSwissPlayersCount;
+      document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount-1];
+      
       quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br /> &nbsp; &nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td></td><td></td><td></td></tr>`;
     }else {
       // If this is not a small swiss
@@ -167,6 +178,8 @@ function makeNewList() {
     document.getElementById(`quad-${numOfQuads}`).appendChild(quadRow);
     // End of add the player to the printable tables
   }
+
+  
 
   // Add instructions on tables
   const qTs = document.querySelectorAll('.quad-table');
@@ -210,6 +223,7 @@ function makeNewList() {
     if(quadType=='swiss') {
       quadTableTopCell.innerHTML = `Small Swiss`;
       document.getElementById('pairing-table').classList.add('active'); // Makes the pairing tables display when needed
+      document.getElementById('pairing-cards').classList.add('active'); // Makes the pairing cards display when needed
     } else {
       quadTableTopCell.innerHTML = `Quad ${numOfQuads}`;
     }
@@ -230,6 +244,7 @@ function makeNewList() {
     quadTables.appendChild(quadTable);
   } 
   // End of makeQuadTable() Make the Quad or Small Swiss Table
+
 } 
 // End of makeNewList() - Make a new player list
 

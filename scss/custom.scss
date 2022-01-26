@@ -193,12 +193,17 @@ $headings-color:              $secondary !default;
   font-size:1.4rem;
 }
 
-#pairing-table {display:none}
+#pairing-table {display:none;}
+#pairing-table th:nth-child(2n) {width:45%}
+#pairing-table tr {min-height:40px}
+#pairing-table td {text-align:center}
+#pairing-cards {display:none}
 
 @media print {
   #printable-quads, #pairing-table.active {display:initial;width:100% !important}
+  #pairing-cards.active {display:initial}
   #registration-area {display:none}
-  #pairing-table, .quad-table {break-after: page;} 
+  #pairing-table, .quad-table {break-after:page} 
 }
 
 #printable-quads .small-swiss-table .quad-instructions {display:none}
@@ -212,6 +217,10 @@ $headings-color:              $secondary !default;
 #quad-list {min-height:523px;}
 #registration-area {padding-top:5px}
 #registration-area h1 {padding-bottom:2px}
+
+
+
+
 
 /*
  * Lines below for easy cut and paste in the terminal

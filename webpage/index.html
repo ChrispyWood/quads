@@ -29,19 +29,19 @@
         <h2 class='h4'>Add a Player</h2>
         <form id="add-player">
           <div class="form-group">
-            <label for="first" class="form-label">First</label>
+            <label for="form-first" class="form-label">First</label>
             <input type="text" class="form-control mb-1" id="form-first" placeholder="First Name">
           </div>
           <div class="form-group">
-            <label for="last" class="form-label">Last</label>
+            <label for="form-last" class="form-label">Last</label>
             <input type="text" class="form-control mb-1" id="form-last" placeholder="Last Name">
           </div>
           <div class="form-group">
-            <label for="rating" class="form-label">Rating</label>
-            <input type="number" class="form-control mb-1" id="form-rating"  placeholder="Rating" maxlength="4">
+            <label for="form-rating" class="form-label">Rating</label>
+            <input type="number" class="form-control mb-1" id="form-rating"  placeholder="Rating">
           </div>
           <div class="form-group">
-            <label for="rating" class="form-label">ID</label>
+            <label for="form-id" class="form-label">ID</label>
             <input type="text" class="form-control mb-1" id="form-id" placeholder="USCF ID" maxlength="8">
           </div>
           <div class='d-grid gap-2 mt-2'>
@@ -50,7 +50,7 @@
           </div>
         </form>
         <div class='d-grid gap-2 mt-2'>
-          <a type="submit" class='btn btn-outline-primary' id="search-player-btn" target="uscf-frame" href="https://uschess.org/msa/thin2.php">Search by Name</a>
+          <a class='btn btn-outline-primary' id="search-by-name-btn" target="uscf-frame" href="https://uschess.org/msa/thin2.php">Search by Name</a>
         </div>
         <div class='d-grid gap-2 mt-2'>
           <input type="button" onclick='window.print();' class='btn btn-outline-primary' id="print-btn" value="Print">
@@ -58,7 +58,7 @@
         <h2 class='h4 mt-4'>Remove a Player</h2>
         <p>To remove a player submit their ID below. To remove all players submit "DELETE ALL".</p>
           <div class="form-group">
-            <label for="id" class="form-label">ID</label>
+            <label for="form-delete-id" class="form-label">ID</label>
             <input type="text" class="form-control mb-1" id="form-delete-id"  placeholder="ID of player to remove.">
           </div>
           <div class='d-grid gap-2 mt-2'>
@@ -76,11 +76,7 @@
     </div>
   </div>
 
-  <style>
-    #pairing-table th:nth-child(2n) {width:45%}
-    #pairing-table tr {min-height:40px}
-    #pairing-table td {text-align:center}
-  </style>
+
   <!-- Hidden Pairing Sheet -->
   <div class="container" id='pairing-table'>
     <h2>Small Swiss Round One</h2>
@@ -94,30 +90,30 @@
       </tr>
       <tr>
         <td>1</td>
+        <td id='td-player-1'></td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td id='td-player-4'></td>
         <td></td>
       </tr>
       <tr>
         <td>2</td>
+        <td id='td-player-2'></td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td id='td-player-5'></td>
         <td></td>
       </tr>
       <tr>
         <td>3</td>
+        <td id='td-player-3'></td>
         <td></td>
-        <td></td>
-        <td></td>
+        <td id='td-player-6'></td>
         <td></td>
       </tr>
       <tr>
         <td>4</td>
         <td></td>
-        <td>1</td>
-        <td>Bye</td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
     </table>
@@ -154,8 +150,8 @@
       <tr>
         <td>4</td>
         <td></td>
-        <td>1</td>
-        <td>Bye</td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
     </table>
@@ -192,12 +188,258 @@
       <tr>
         <td>4</td>
         <td></td>
-        <td>1</td>
-        <td>Bye</td>
+        <td></td>
+        <td></td>
         <td></td>
       </tr>
     </table>
   </div>
+
+<div style='break-after:page'></div>
+
+
+  <div id="pairing-cards" class='container'>
+    <div class="row">
+      <div class="col-6">
+        <h4 id='swiss-player-1'>Player</h4>
+        <table class='table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="col-6">
+        <h4 id='swiss-player-2'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-6">
+        <h4 id='swiss-player-3'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="col-6">
+        <h4 id='swiss-player-4'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-6">
+        <h4 id='swiss-player-5'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      
+      <div class="col-6">
+        <h4 id='swiss-player-6'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+      <div class="col-6">
+        <h4 id='swiss-player-7'>Player</h4>
+        <table class='col-6 table table-sm table-bordered'>
+          <tr>
+            <th>round</th>
+            <th>color</th>
+            <th>opponent</th>
+            <th>gamescore</th>
+            <th>totalscore</th>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
   <script src='quads.js'></script>
 </body>
 </html>
