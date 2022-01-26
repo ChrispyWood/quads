@@ -53,23 +53,31 @@ document.querySelector('#remove-player-btn').addEventListener('click',
 function(e){
   // Get the ID to remove
   idToRemove = document.getElementById('form-delete-id').value;
-  if (document.getElementById('form-delete-id').value=="DELETE ALL") {
-    // Delete al of the players
-    players = [];
-  }
-  // Loop through the array
-  for (let i = 0; i < players.length; i++) {
-    thisID = players[i].id;
-    if (thisID==idToRemove) {
-      // Delete this player
-      players.splice(i,1);
+
+  // This traps some wierd behavior in chrome
+  if (idToRemove.length > 0) {
+    
+    if (document.getElementById('form-delete-id').value=="DELETE ALL") {
+      // Delete all of the players
+      players = [];
     }
+    // Loop through the array
+    for (let i = 0; i < players.length; i++) {
+      thisID = players[i].id;
+      if (thisID===idToRemove) {
+        // Delete this player
+        players.splice(i,1);
+      }
+    }
+    // Clear the Delete Player Box
+    document.getElementById('form-delete-id').value = "";
+    //put in local storage
+    localStorage.setItem('players', JSON.stringify(players));
+    makeNewList();
+
   }
-  // Clear the Delete Player Box
-  document.getElementById('form-delete-id').value = "";
-  //put in local storage
-  localStorage.setItem('players', JSON.stringify(players));
-  makeNewList();
+
+
 });
 // End of remove a player or all players
 
@@ -79,6 +87,10 @@ function(e){
  * Make a new player list
  * * * * * * * * * * * * * * * * * */
 function makeNewList() {
+ 
+  smallSwissPlayers = []; // Clear the smallSwissPlayers array, so old players are no longer in the small swiss
+  document.getElementById('pairing-table').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
+  document.getElementById('pairing-cards').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
 
   // loop through players and change rating to a number
   for (let i = 0; i < players.length; i++) {
@@ -112,6 +124,7 @@ function makeNewList() {
     // Make a title if this is a new quad or small swiss
     if (quadplayer === 0) {
       if (playersLeft > 7 || playersLeft == 4) {
+        console.log(playersLeft);
         // if more than 7 or exactly 4 are left, then make a quad title
         numOfQuads++; // the quad number
         let quadTitle = document.createElement('h4');
