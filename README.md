@@ -12,3 +12,11 @@ Webpage to manage a chess quads tournament.
 8. Follow a US Chess standard in the pairings.
 9. Use vanilla javascript and Boostrap 5.
 10. Browser can be closed without losing data.
+
+## it will not
+1. Pair second and third round of small swiss, but it prints pairing cards and a first-round chart.
+2. Confirm data after a player is registered.
+3. Submit or prepare datafiles to submit ratings.
+
+## why this
+Our chess club runs a monthly blitz tournament with about 20 players.
