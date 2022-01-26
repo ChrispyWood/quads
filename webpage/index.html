@@ -17,6 +17,8 @@
   <div class="container" id="registration-area">
     <h1>Quads</h1>
     <div class="row" id="players">
+
+      <!-- Registered Players Area -->
       <div class="col-4">
         <h2 class='h4'>Registered</h2>
         <div class="card p-3">
@@ -25,8 +27,11 @@
           </div>  
         </div>
       </div>
+
+      <!-- Add, Remove, Look-up Players Area -->
       <div class="col-4">
         <h2 class='h4'>Add a Player</h2>
+
         <form id="add-player">
           <div class="form-group">
             <label for="form-first" class="form-label">First</label>
@@ -49,22 +54,28 @@
           <input type="button" class='btn btn-outline-primary' id="search-player-btn" value="Search by ID">
           </div>
         </form>
+
         <div class='d-grid gap-2 mt-2'>
           <a class='btn btn-outline-primary' id="search-by-name-btn" target="uscf-frame" href="https://uschess.org/msa/thin2.php">Search by Name</a>
         </div>
+
         <div class='d-grid gap-2 mt-2'>
           <input type="button" onclick='window.print();' class='btn btn-outline-primary' id="print-btn" value="Print">
         </div>
+
         <h2 class='h4 mt-4'>Remove a Player</h2>
         <p>To remove a player submit their ID below. To remove all players submit "DELETE ALL".</p>
-          <div class="form-group">
-            <label for="form-delete-id" class="form-label">ID</label>
-            <input type="text" class="form-control mb-1" id="form-delete-id"  placeholder="ID of player to remove.">
-          </div>
-          <div class='d-grid gap-2 mt-2'>
-            <input type="button" class='btn btn-outline-primary' id="remove-player-btn" value="Delete Player">
-          </div>
+        <div class="form-group">
+          <label for="form-delete-id" class="form-label">ID</label>
+          <input type="text" class="form-control mb-1" id="form-delete-id"  placeholder="ID of player to remove.">
+        </div>
+        <div class='d-grid gap-2 mt-2'>
+          <input type="button" class='btn btn-outline-primary' id="remove-player-btn" value="Delete Player">
+        </div>
+
       </div>
+
+      <!-- US Chess Form Area -->
       <div class="col-4">
         <h2 class='h4'>US Chess</h2>
         <div class="card">
@@ -73,126 +84,41 @@
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
 
   <!-- Hidden Pairing Sheet -->
   <div class="container" id='pairing-table'>
+
     <h2>Small Swiss Round One</h2>
     <table class='table table-bordered table-sm'>
-      <tr>
-        <th>Board</th>
-        <th>White</th>
-        <th>Score</th>
-        <th>Black</th>
-        <th>Score</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td id="td-player-1"></td>
-        <td></td>
-        <td id="td-player-4"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td id="td-player-2"></td>
-        <td></td>
-        <td id="td-player-5"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td id="td-player-3"></td>
-        <td></td>
-        <td id="td-player-6"></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td id="td-player-7"></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><th>Board</th><th>White</th><th>Score</th><th>Black</th><th>Score</th></tr>
+      <tr><td>1</td><td id="td-player-1"></td><td></td><td id="td-player-4"></td><td></td></tr>
+      <tr><td>2</td><td id="td-player-2"></td><td></td><td id="td-player-5"></td><td></td></tr>
+      <tr><td>3</td><td id="td-player-3"></td><td></td><td id="td-player-6"></td><td></td></tr>
+      <tr><td>4</td><td id="td-player-7"></td><td></td><td></td><td></td></tr>
     </table>
+
     <h2>Small Swiss Round Two</h2>
     <table class='table table-bordered table-sm'>
-      <tr>
-        <th>Board</th>
-        <th>White</th>
-        <th>Score</th>
-        <th>Black</th>
-        <th>Score</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><th>Board</th><th>White</th><th>Score</th><th>Black</th><th>Score</th></tr>
+      <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
     </table>
+
     <h2>Small Swiss Round Three</h2>
     <table class='table table-bordered table-sm'>
-      <tr>
-        <th>Board</th>
-        <th>White</th>
-        <th>Score</th>
-        <th>Black</th>
-        <th>Score</th>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>3</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <td>4</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      <tr><th>Board</th><th>White</th><th>Score</th><th>Black</th><th>Score</th></tr>
+      <tr><td>1</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>2</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>3</td><td></td><td></td><td></td><td></td></tr>
+      <tr><td>4</td><td></td><td></td><td></td><td></td></tr>
     </table>
+
   </div>
 
 <div style='break-after:page'></div>
