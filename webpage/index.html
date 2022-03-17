@@ -18,18 +18,8 @@
     <h1>Quads</h1>
     <div class="row" id="players">
 
-      <!-- Registered Players Area -->
-      <div class="col-4">
-        <h2 class='h4'>Registered</h2>
-        <div class="card p-3">
-          <div id="quad-list">
-            <!-- Registered List Goes Here -->
-          </div>  
-        </div>
-      </div>
-
       <!-- Add, Remove, Look-up Players Area -->
-      <div class="col-4">
+      <div class="col-lg-4 pb-3">
         <h2 class='h4'>Add a Player</h2>
 
         <form id="add-player">
@@ -76,12 +66,22 @@
       </div>
 
       <!-- US Chess Form Area -->
-      <div class="col-4">
+      <div class="order-lg-last col-lg-4 pb-3">
         <h2 class='h4'>US Chess</h2>
         <div class="card">
           <div class="card card-body with-iframe">
             <iframe name='uscf-frame' id='uscf-frame' title='USCF Lookups' src="frame.html"></iframe>
           </div>
+        </div>
+      </div>
+
+      <!-- Registered Players Area -->
+      <div class="order-lg-first col-lg-4 pb-3">
+        <h2 class='h4'>Registered</h2>
+        <div class="card p-3">
+          <div id="quad-list">
+            <!-- Registered List Goes Here -->
+          </div>  
         </div>
       </div>
 
