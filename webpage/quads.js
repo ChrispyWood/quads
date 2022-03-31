@@ -1,9 +1,8 @@
 let players = []; // an array to hold player objects
-
 let smallSwissPlayers = []; // names of the small swiss players
 let smallSwissPlayersCount = 0; // index of smallSwissPlayers[]
 
-// if in local storage, get it and display
+// if array is in local storage, get it and display
 if (localStorage.getItem('players') === null) players = [];
 else {
   players = JSON.parse(localStorage.getItem('players'));
@@ -22,8 +21,16 @@ function(e){
   last = document.getElementById("form-last").value;
   rating = document.getElementById("form-rating").value;
   id = document.getElementById("form-id").value;
+
+  // if id is empty, we will count the players and make a value
+  if (id==0) {
+    let newId=100+players.length;
+    id = newId.toString();
+  }
+
   let player = {'first':first,'last':last,'id':id,'rating': rating}
   players.push(player);
+
   //put in local storage
   localStorage.setItem('players', JSON.stringify(players));
   makeNewList();
@@ -38,6 +45,7 @@ document.querySelector('#search-player-btn').addEventListener('click',
 function(e){
   let url = "";
   id = document.getElementById("form-id").value;
+
   // at least a last name
   if (id.length < 1 && last.length < 1) {
     alert('You will need to provide a USCF ID.');
@@ -51,6 +59,7 @@ function(e){
 // Remove a player or all players
 document.querySelector('#remove-player-btn').addEventListener('click',
 function(e){
+
   // Get the ID to remove
   idToRemove = document.getElementById('form-delete-id').value;
 
@@ -58,19 +67,24 @@ function(e){
   if (idToRemove.length > 0) {
     
     if (document.getElementById('form-delete-id').value=="DELETE ALL") {
+
       // Delete all of the players
       players = [];
     }
+
     // Loop through the array
     for (let i = 0; i < players.length; i++) {
       thisID = players[i].id;
       if (thisID===idToRemove) {
+
         // Delete this player
         players.splice(i,1);
       }
     }
+
     // Clear the Delete Player Box
     document.getElementById('form-delete-id').value = "";
+
     //put in local storage
     localStorage.setItem('players', JSON.stringify(players));
     makeNewList();
@@ -88,7 +102,6 @@ function(e){
  * * * * * * * * * * * * * * * * * */
 function makeNewList() {
 
-  
   smallSwissPlayers = []; // Clear the smallSwissPlayers array, so old players are no longer in the small swiss
   smallSwissPlayersCount = 0; // Reset variable for index of smallSwissPlayers[]
   document.getElementById('pairing-table').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
@@ -97,6 +110,7 @@ function makeNewList() {
 
   // loop through players and change rating to a number
   for (let i = 0; i < players.length; i++) {
+
     // if NaN, make zero, else transform to number
     if (isNaN(players[i].rating)) {
       players[i].rating = 0;
@@ -127,6 +141,7 @@ function makeNewList() {
     // Make a title if this is a new quad or small swiss
     if (quadplayer === 0) {
       if (playersLeft > 7 || playersLeft == 4) {
+
         // if more than 7 or exactly 4 are left, then make a quad title
         numOfQuads++; // the quad number
         let quadTitle = document.createElement('h4');
@@ -135,6 +150,7 @@ function makeNewList() {
         quadList.appendChild(quadTitle);
         makeQuadTable('quad',numOfQuads); // Make the Quad Tables (quadTables)
       } else {
+
         // if a small swiss title has not been made, make one, then start counting small swiss players
         if (smallSwissTitle === false) {
           numOfQuads++; // the quad number
@@ -192,8 +208,6 @@ function makeNewList() {
     document.getElementById(`quad-${numOfQuads}`).appendChild(quadRow);
     // End of add the player to the printable tables
   }
-
-  
 
   // Add instructions on tables
   const qTs = document.querySelectorAll('.quad-table');
