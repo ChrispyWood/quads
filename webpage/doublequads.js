@@ -280,16 +280,3 @@ function clearForm() {
     playerAddFormInputs.value = '';
   });
 }
-
-
-/* * * * * * * * * * * * * * * * * *
- * printDouble()
- * Print a Double-Round Event
- * * * * * * * * * * * * * * * * * */
-function printDouble() {
-  const playerAddForm = document.querySelector('#add-player');
-  const playerAddFormInputs = playerAddForm.querySelectorAll('.form-control');
-  forEach(playerAddFormInputs, function() {
-    playerAddFormInputs.value = '';
-  });
-}
