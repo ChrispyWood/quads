@@ -12,6 +12,7 @@ Webpage to manage a chess quads tournament.
 8. Follow a US Chess standard in the pairings.
 9. Use vanilla javascript and Boostrap 5.
 10. Browser can be closed without losing data.
+11. Both single-round and double-round quad tournaments accommodated.
 
 ## it will not
 1. Pair second and third round of small swiss, but it prints pairing cards and a first-round chart.
