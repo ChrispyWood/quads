@@ -10,85 +10,30 @@
  *
  *******************************************************************************/
 /*!
- * Bootstrap v5.1.3 (https://getbootstrap.com/)
- * Copyright 2011-2021 The Bootstrap Authors
- * Copyright 2011-2021 Twitter, Inc.
+ * Bootstrap v5.2.3 (https://getbootstrap.com/)
+ * Copyright 2011-2022 The Bootstrap Authors
+ * Copyright 2011-2022 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  *
  * Customized for the Chess Quads App by HandsomeWeb LLC
  */ 
 
-// Required Configuration
+// Functions first
 @import "../node_modules/bootstrap/scss/functions";
 
 // Customization will go here
-
-$white:    #fff !default;
-$gray-100: #f8f9fa !default;
-$gray-200: #e9ecef !default;
-$gray-300: #dee2e6 !default;
-$gray-400: #ced4da !default;
-$gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
-$gray-700: #495057 !default;
-$gray-800: #343a40 !default;
-$gray-900: #212529 !default;
-$black:    #000 !default;
-
-$grays: (
-  "100": $gray-100,
-  "200": $gray-200,
-  "300": $gray-300,
-  "400": $gray-400,
-  "500": $gray-500,
-  "600": $gray-600,
-  "700": $gray-700,
-  "800": $gray-800,
-  "900": $gray-900
-) !default;
-
 $bluegray:    #5885AF !default;
 $midnight:    #41729F !default;
 $darkblue:    #274472 !default;
-$blue:    #243fb8 !default;
-$indigo:  #6610f2 !default;
-$purple:  #6f42c1 !default;
-$pink:    #d63384 !default;
-$red:     #e62121 !default;
-$orange:  #ee720c !default;
-$yellow:  #ffc107 !default;
-$green:   #0e7746 !default;
-$teal:    #20c997 !default;
-$cyan:    #0dcaf0 !default;
 
 $colors: (
   "bluegray":   $bluegray,
   "midnight":   $midnight,
-  "darkblue":   $darkblue,
-  "blue":       $blue,
-  "indigo":     $indigo,
-  "purple":     $purple,
-  "pink":       $pink,
-  "red":        $red,
-  "orange":     $orange,
-  "yellow":     $yellow,
-  "green":      $green,
-  "teal":       $teal,
-  "cyan":       $cyan,
-  "white":      $white,
-  "gray":       $gray-600,
-  "gray-dark":  $gray-800
+  "darkblue":   $darkblue
 ) !default;
 
 $primary:       $midnight !default;
 $secondary:     $darkblue !default;
-$success:       $green !default;
-$info:          $cyan !default;
-$warning:       $yellow !default;
-$danger:        $red !default;
-$light:         $gray-100 !default;
-$dark:          $gray-900 !default;
-
 $link-color:                  $secondary !default;
 $border-color:                $secondary !default;
 $input-btn-focus-box-shadow:   none !default;
@@ -96,134 +41,139 @@ $border-radius:               0rem !default;
 $border-radius-sm:            0rem !default;
 $border-radius-lg:            0rem !default;
 $border-radius-pill:          50rem !default;
-$card-border-color:                 rgba($secondary, .25) !default;
+$card-border-color:           rgba($secondary, .25) !default;
 $headings-color:              $secondary !default;
 
-// More Required stylesheets
+// Required Bootstrap imports
 @import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/utilities";
-
-// Layout & components (Commenting out what is not needed)
 @import "../node_modules/bootstrap/scss/root";
+
+// Optional components
+@import "../node_modules/bootstrap/scss/utilities";
 @import "../node_modules/bootstrap/scss/reboot";
-@import "../node_modules/bootstrap/scss/type";
-@import "../node_modules/bootstrap/scss/images";
 @import "../node_modules/bootstrap/scss/containers";
 @import "../node_modules/bootstrap/scss/grid";
 @import "../node_modules/bootstrap/scss/tables";
 @import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/buttons";
-/*
-@import "../node_modules/bootstrap/scss/transitions";
-@import "../node_modules/bootstrap/scss/dropdown";
-@import "../node_modules/bootstrap/scss/button-group";
-@import "../node_modules/bootstrap/scss/nav";
-@import "../node_modules/bootstrap/scss/navbar";
-*/
 @import "../node_modules/bootstrap/scss/card";
-/*
-@import "../node_modules/bootstrap/scss/accordion";
-@import "../node_modules/bootstrap/scss/breadcrumb";
-@import "../node_modules/bootstrap/scss/pagination";
-@import "../node_modules/bootstrap/scss/badge";
-@import "../node_modules/bootstrap/scss/alert";
-@import "../node_modules/bootstrap/scss/progress";
-@import "../node_modules/bootstrap/scss/list-group";
-@import "../node_modules/bootstrap/scss/close";
-@import "../node_modules/bootstrap/scss/toasts";
-@import "../node_modules/bootstrap/scss/modal";
-@import "../node_modules/bootstrap/scss/tooltip";
-@import "../node_modules/bootstrap/scss/popover";
-@import "../node_modules/bootstrap/scss/carousel";
-@import "../node_modules/bootstrap/scss/spinners";
-@import "../node_modules/bootstrap/scss/offcanvas"; 
-@import "../node_modules/bootstrap/scss/placeholders";
-*/
-
-// Helpers
 @import "../node_modules/bootstrap/scss/helpers";
-
-// Utilities
 @import "../node_modules/bootstrap/scss/utilities/api";
-// scss-docs-end import-stack
-
 
 // Customizations for our page.
 
-/* Printable Quads */
-#printable-quads {display:none}
-.form-label {display:none}
-.quad-table tr td {width:12%;vertical-align:bottom;text-align:center}
-.quad-table tr td:first-child {width:28%;text-align:left}
-.quad-table td:not(.round-title-cell, .quad-instructions) {
-  border:2px solid black;
+/* * * * * * * * * * * * * */
+/* Main registration areas */
+/* * * * * * * * * * * * * */
+#registration-area {
+  padding-top:5px;
+  & h1 {padding-bottom:2px}
+  & .form-label {display:none}
+  & #quad-list {min-height:523px;}
+  & #uscf-frame {
+    width:100%;
+    height:555px;
+  }
+  & .with-iframe {
+    padding:0;
+    border:0
+  }
 }
-.quad-table td.round-title-cell {
-  text-align:center;
-  font-weight:bold;
-}
-.quad-table tr:nth-child(2) td:first-child:before {
-  content: "1. ";
-}
-.quad-table tr:nth-child(3) td:first-child:before {
-  content: "2. ";
-}
-.quad-table tr:nth-child(4) td:first-child:before {
-  content: "3. ";
-}
-.quad-table tr:nth-child(5) td:first-child:before {
-  content: "4. ";
-}
-.quad-table tr:nth-child(6) td:first-child:before {
-  content: "5. ";
-}
-.quad-table tr:nth-child(7) td:first-child:before {
-  content: "6. ";
-}
-.quad-table tr:nth-child(8) td:first-child:before {
-  content: "7. ";
-}
-.quad-table td.quad-instructions:before {content:"" !important}
-.quad-table td:first-child {
-  font-size:1.0rem;
-  padding: 10px 8px 10px 8px;
-}
-.quad-table th {
-  font-size:1.4rem;
-}
-
-#pairing-table {display:none;}
-#pairing-table th:nth-child(2n) {width:45%}
-#pairing-table tr {min-height:40px}
-#pairing-table td {text-align:center}
-#pairing-cards {display:none}
-
-#pairing-cards h4, 
-#pairing-cards th, 
-#pairing-cards td {font-size:0.9rem;}
 
 @media print {
-  #printable-quads, #pairing-table.active {display:initial;width:100% !important}
-  #pairing-cards.active {display:initial}
   #registration-area {display:none}
-  .quad-table {break-after:page} 
 }
 
-//#printable-quads .small-swiss-table .quad-instructions {display:none}
-#printable-quads .small-swiss-table tr:nth-child(n+2) td:nth-child(4) {color:transparent}
 
-/* USCF Search Frame */
-#uscf-frame {width:100%;height:555px;}
-.with-iframe {padding:0;border:0}
+/* * * * * * * * * */
+/* Printable Quads */
+/* * * * * * * * * */
+#printable-quads {
+  display:none;
+  & .quad-table tr {
+    & th { font-size:1.4rem; }
+    & td {
+      width:12%;
+      vertical-align:bottom;
+      text-align:center;
+      &:first-child {
+        width:28%;
+        text-align:left;
+      }
+      &:not(.round-title-cell, .quad-instructions) { border:2px solid black; }
+      &.round-title-cell {
+        text-align:center;
+        font-weight:bold;
+      }
+      &.quad-instructions:before { content:"" !important }
+      &:first-child {
+        font-size:1.0rem;
+        padding: 10px 8px 10px 8px;
+      }
+    }
+    & .small-swiss-table tr:nth-child(n+2) td:nth-child(4) { color:transparent }
+    &:nth-child(2) td:first-child:before { content: "1. "; }
+    &:nth-child(3) td:first-child:before { content: "2. "; }
+    &:nth-child(4) td:first-child:before { content: "3. "; }
+    &:nth-child(5) td:first-child:before { content: "4. "; }
+    &:nth-child(6) td:first-child:before { content: "5. "; }
+    &:nth-child(7) td:first-child:before { content: "6. "; }
+    &:nth-child(8) td:first-child:before { content: "7. "; }
+  }
+}
 
-/* Main registration areas */
-#quad-list {min-height:523px;}
-#registration-area {padding-top:5px}
-#registration-area h1 {padding-bottom:2px}
+@media print {
+  #printable-quads {
+    display:initial;
+    width:100% !important;
+    & .quad-table {
+      break-after:page;
+    } 
+  }
+}
 
 
+/* * * * * * * * * */
+/* Pairing Tables  */
+/* * * * * * * * * */
+#pairing-table {
+  display:none;
+  & tr {
+    min-height:40px;
+    & th:nth-child(2n) {
+      width:45%
+    }
+    & td {
+      text-align:center
+    }
+  }
+}
 
+@media print {
+  #pairing-table.active {
+    display:initial;
+    width:100% !important
+  }
+}
+
+
+/* * * * * * * * */
+/* Pairing Cards */
+/* * * * * * * * */
+#pairing-cards {
+  display:none;
+  & h4, 
+  & th, 
+  & td {
+    font-size:0.9rem;
+  }
+}
+
+@media print {
+  #pairing-cards.active {display:initial}
+}
 
 /*
  * Lines below for easy cut and paste in the terminal
