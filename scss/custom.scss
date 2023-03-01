@@ -172,7 +172,8 @@ $headings-color:              $secondary !default;
 }
 
 @media print {
-  #pairing-cards.active {display:initial}
+  #pairing-cards.active {display:initial} 
+  .page-break {break-after:page}
 }
 
 /*

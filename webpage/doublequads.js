@@ -183,6 +183,7 @@ function makeNewList() {
       smallSwissPlayers[smallSwissPlayersCount] = `${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}`;
       let playerNumberId = `td-player-${smallSwissPlayersCount}`;
       document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount];
+      document.getElementById(playerNumberId+"b").innerHTML=smallSwissPlayers[smallSwissPlayersCount];
       playerNumberId = `swiss-player-${smallSwissPlayersCount}`;
       document.getElementById(playerNumberId).innerHTML=smallSwissPlayers[smallSwissPlayersCount];
       quadRow.innerHTML = `<tr><td>${players[i].first.toUpperCase()} ${players[i].last.toUpperCase()}<br />&nbsp; &nbsp; (${players[i].rating}) ${players[i].id}<td></td><td></td><td></td><td></td><td></td><td></td></tr>`;
