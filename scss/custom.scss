@@ -97,7 +97,7 @@ $headings-color:              $secondary !default;
 /* Printable Quads */
 /* * * * * * * * * */
 #printable-quads {
-  //display:none;
+  display:none;
   & .quad-table tr {
     & th { font-size:1.4rem; }
     & td {
