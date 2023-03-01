@@ -154,8 +154,8 @@ $headings-color:              $secondary !default;
 /* Printable Quads */
 #printable-quads {display:none}
 .form-label {display:none}
-.quad-table tr td {width:20%;vertical-align:bottom;text-align:center}
-.quad-table tr td:first-child {width:40%;text-align:left}
+.quad-table tr td {width:12%;vertical-align:bottom;text-align:center}
+.quad-table tr td:first-child {width:28%;text-align:left}
 .quad-table td:not(.round-title-cell, .quad-instructions) {
   border:2px solid black;
 }
@@ -186,8 +186,8 @@ $headings-color:              $secondary !default;
 }
 .quad-table td.quad-instructions:before {content:"" !important}
 .quad-table td:first-child {
-  font-size:1.2rem;
-  padding: 10px 10px 10px 10px;
+  font-size:1.0rem;
+  padding: 10px 8px 10px 8px;
 }
 .quad-table th {
   font-size:1.4rem;
@@ -199,14 +199,18 @@ $headings-color:              $secondary !default;
 #pairing-table td {text-align:center}
 #pairing-cards {display:none}
 
+#pairing-cards h4, 
+#pairing-cards th, 
+#pairing-cards td {font-size:0.9rem;}
+
 @media print {
   #printable-quads, #pairing-table.active {display:initial;width:100% !important}
   #pairing-cards.active {display:initial}
   #registration-area {display:none}
-  #pairing-table, .quad-table {break-after:page} 
+  .quad-table {break-after:page} 
 }
 
-#printable-quads .small-swiss-table .quad-instructions {display:none}
+//#printable-quads .small-swiss-table .quad-instructions {display:none}
 #printable-quads .small-swiss-table tr:nth-child(n+2) td:nth-child(4) {color:transparent}
 
 /* USCF Search Frame */
@@ -217,7 +221,6 @@ $headings-color:              $secondary !default;
 #quad-list {min-height:523px;}
 #registration-area {padding-top:5px}
 #registration-area h1 {padding-bottom:2px}
-
 
 
 
