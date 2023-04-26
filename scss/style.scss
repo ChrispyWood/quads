@@ -1,0 +1,42 @@
+/******************************************************************************
+ * style.scss
+ * Builds the CSS
+ * sass --watch scss/style.scss:webpage/style2.css --style compressed
+ * sass scss/style.scss:webpage/style2.css --style compressed
+ ***********************
+ ********************************************************/
+
+ // Colors
+$bluegray:    #5885AF !default;
+$midnight:    #41729F !default;
+$darkblue:    #274472 !default;
+
+#printable-quads {
+  display:none;
+}
+
+#registration-area {
+
+  width:96%;
+  max-width:1400px;
+  margin: auto;
+
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+    }
+  
+  & .col-lg-4 {
+    width:33.333%;
+  }
+
+}
+
+
+
+/*
+ * Lines below for easy cut and paste in the terminal
+ * sass --watch scss/style.scss:webpage/style2.css --style compressed
+ * sass scss/style.scss:webpage/style2.css --style compressed
+ */
