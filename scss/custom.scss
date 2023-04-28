@@ -48,7 +48,7 @@ $headings-color:              $secondary !default;
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/maps";
 @import "../node_modules/bootstrap/scss/mixins";
-@import "../node_modules/bootstrap/scss/root";
+//@import "../node_modules/bootstrap/scss/root";
 
 // Optional components
 @import "../node_modules/bootstrap/scss/utilities";
@@ -59,7 +59,7 @@ $headings-color:              $secondary !default;
 @import "../node_modules/bootstrap/scss/forms";
 @import "../node_modules/bootstrap/scss/buttons";
 @import "../node_modules/bootstrap/scss/card";
-@import "../node_modules/bootstrap/scss/helpers";
+//@import "../node_modules/bootstrap/scss/helpers";
 @import "../node_modules/bootstrap/scss/utilities/api";
 
 // Customizations for our page.
