@@ -28,4 +28,4 @@ Webpage to manage a chess quads tournament.
 3. Submit or prepare datafiles to submit ratings.
 
 ## why this
-Our chess club runs a monthly blitz tournament with about 20 players.
+Our chess club runs two quads tournaments each month.
