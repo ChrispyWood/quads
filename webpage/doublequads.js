@@ -102,7 +102,16 @@ function(e){
  * * * * * * * * * * * * * * * * * */
 function makeNewList() {
 
-  smallSwissPlayers = []; // Clear the smallSwissPlayers array, so old players are no longer in the small swiss
+  // Clear the smallSwissPlayers array, so old players are no longer in the small swiss
+  // and clear the small swiss table cells
+  smallSwissPlayers = []; 
+  for (let i = 1; i < 8; i++) {
+    let playerTD = "td-player-" + i;
+    document.getElementById(playerTD).innerHTML = "";
+    playerTD = "td-player-" + i + "b";
+    document.getElementById(playerTD).innerHTML = "";
+  }
+
   smallSwissPlayersCount = 0; // Reset variable for index of smallSwissPlayers[]
   document.getElementById('pairing-table').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
   document.getElementById('pairing-cards').classList.remove('active'); // Remove the class, if it was added on the last makeNewList
